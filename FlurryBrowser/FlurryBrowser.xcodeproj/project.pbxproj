@@ -14,7 +14,7 @@
 		C3A9530F15B5408D00C0D9AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9530E15B5408D00C0D9AF /* main.m */; };
 		C3A9531315B5408D00C0D9AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9531215B5408D00C0D9AF /* AppDelegate.m */; };
 		C3A9531615B5408D00C0D9AF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A9531415B5408D00C0D9AF /* MainStoryboard.storyboard */; };
-		C3A9531915B5408D00C0D9AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9531815B5408D00C0D9AF /* ViewController.m */; };
+		C3A9531915B5408D00C0D9AF /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9531815B5408D00C0D9AF /* BrowserViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,8 @@
 		C3A9531115B5408D00C0D9AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3A9531215B5408D00C0D9AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C3A9531515B5408D00C0D9AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C3A9531715B5408D00C0D9AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3A9531815B5408D00C0D9AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C3A9531715B5408D00C0D9AF /* BrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
+		C3A9531815B5408D00C0D9AF /* BrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 				C3A9531115B5408D00C0D9AF /* AppDelegate.h */,
 				C3A9531215B5408D00C0D9AF /* AppDelegate.m */,
 				C3A9531415B5408D00C0D9AF /* MainStoryboard.storyboard */,
-				C3A9531715B5408D00C0D9AF /* ViewController.h */,
-				C3A9531815B5408D00C0D9AF /* ViewController.m */,
+				C3A9531715B5408D00C0D9AF /* BrowserViewController.h */,
+				C3A9531815B5408D00C0D9AF /* BrowserViewController.m */,
 				C3A9530915B5408D00C0D9AF /* Supporting Files */,
 			);
 			path = FlurryBrowser;
@@ -163,7 +163,7 @@
 			files = (
 				C3A9530F15B5408D00C0D9AF /* main.m in Sources */,
 				C3A9531315B5408D00C0D9AF /* AppDelegate.m in Sources */,
-				C3A9531915B5408D00C0D9AF /* ViewController.m in Sources */,
+				C3A9531915B5408D00C0D9AF /* BrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +275,7 @@
 				C3A9531E15B5408D00C0D9AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
