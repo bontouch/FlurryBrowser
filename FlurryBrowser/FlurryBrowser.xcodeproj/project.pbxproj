@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C32CC56415B745C20018C394 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32CC56315B745C20018C394 /* MessageUI.framework */; };
+		C32CC56815B779370018C394 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C32CC56715B779370018C394 /* libFlurryAnalytics.a */; };
 		C3A9530315B5408D00C0D9AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9530215B5408D00C0D9AF /* UIKit.framework */; };
 		C3A9530515B5408D00C0D9AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9530415B5408D00C0D9AF /* Foundation.framework */; };
 		C3A9530715B5408D00C0D9AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9530615B5408D00C0D9AF /* CoreGraphics.framework */; };
@@ -20,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		C32CC56315B745C20018C394 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C32CC56615B779370018C394 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
+		C32CC56715B779370018C394 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		C3A952FE15B5408D00C0D9AF /* FlurryBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlurryBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3A9530215B5408D00C0D9AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3A9530415B5408D00C0D9AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -44,17 +47,28 @@
 				C3A9530315B5408D00C0D9AF /* UIKit.framework in Frameworks */,
 				C3A9530515B5408D00C0D9AF /* Foundation.framework in Frameworks */,
 				C3A9530715B5408D00C0D9AF /* CoreGraphics.framework in Frameworks */,
+				C32CC56815B779370018C394 /* libFlurryAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C32CC56515B779370018C394 /* FlurryAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				C32CC56615B779370018C394 /* FlurryAnalytics.h */,
+				C32CC56715B779370018C394 /* libFlurryAnalytics.a */,
+			);
+			path = FlurryAnalytics;
+			sourceTree = "<group>";
+		};
 		C3A952F315B5408D00C0D9AF = {
 			isa = PBXGroup;
 			children = (
 				C3A9530815B5408D00C0D9AF /* FlurryBrowser */,
 				C3A9530115B5408D00C0D9AF /* Frameworks */,
+				C32CC56515B779370018C394 /* FlurryAnalytics */,
 				C3A952FF15B5408D00C0D9AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -244,6 +258,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlurryBrowser/FlurryBrowser-Prefix.pch";
 				INFOPLIST_FILE = "FlurryBrowser/FlurryBrowser-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FlurryAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -255,6 +273,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlurryBrowser/FlurryBrowser-Prefix.pch";
 				INFOPLIST_FILE = "FlurryBrowser/FlurryBrowser-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FlurryAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
