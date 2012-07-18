@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32CC56415B745C20018C394 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32CC56315B745C20018C394 /* MessageUI.framework */; };
 		C3A9530315B5408D00C0D9AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9530215B5408D00C0D9AF /* UIKit.framework */; };
 		C3A9530515B5408D00C0D9AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9530415B5408D00C0D9AF /* Foundation.framework */; };
 		C3A9530715B5408D00C0D9AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9530615B5408D00C0D9AF /* CoreGraphics.framework */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C32CC56315B745C20018C394 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C3A952FE15B5408D00C0D9AF /* FlurryBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlurryBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3A9530215B5408D00C0D9AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3A9530415B5408D00C0D9AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32CC56415B745C20018C394 /* MessageUI.framework in Frameworks */,
 				C3A9530315B5408D00C0D9AF /* UIKit.framework in Frameworks */,
 				C3A9530515B5408D00C0D9AF /* Foundation.framework in Frameworks */,
 				C3A9530715B5408D00C0D9AF /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +70,7 @@
 		C3A9530115B5408D00C0D9AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C32CC56315B745C20018C394 /* MessageUI.framework */,
 				C3A9530215B5408D00C0D9AF /* UIKit.framework */,
 				C3A9530415B5408D00C0D9AF /* Foundation.framework */,
 				C3A9530615B5408D00C0D9AF /* CoreGraphics.framework */,

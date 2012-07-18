@@ -21,12 +21,12 @@
                                 <items>
                                     <barButtonItem title="&lt;" id="RaP-Ko-4ZG">
                                         <connections>
-                                            <action selector="backButtonPressed:" destination="2" id="Gir-oN-iND"/>
+                                            <action selector="goBack" destination="1mb-Ky-1j0" id="w8l-Hl-Csh"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title=">" id="Tpt-Yr-L05">
                                         <connections>
-                                            <action selector="forwardButtonPressed:" destination="2" id="I9e-Q7-ILk"/>
+                                            <action selector="goForward" destination="1mb-Ky-1j0" id="U9J-k9-goE"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="v7A-TL-Ojl"/>
@@ -50,7 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pAs-Ng-sOU">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="cwo-mP-NPF">
+                        <barButtonItem key="leftBarButtonItem" id="cwo-mP-NPF">
                             <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="475-HZ-DYC">
                                 <rect key="frame" x="5" y="6" width="310" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

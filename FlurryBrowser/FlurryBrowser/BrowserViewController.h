@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface BrowserViewController : UIViewController <UITextFieldDelegate, UIWebViewDelegate>
+
+@interface BrowserViewController : UIViewController <UITextFieldDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 
