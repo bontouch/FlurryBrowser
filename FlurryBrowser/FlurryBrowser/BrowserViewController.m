@@ -29,6 +29,10 @@
 - (IBAction)refreshButtonPressed:(id)sender {
 }
 
+- (IBAction)goButtonPressed
+{
+}
+
 #pragma mark -
 
 @end
@@ -36,5 +40,11 @@
 
 @implementation BrowserViewController (UITextFieldDelegate)
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self goButtonPressed];
+    return YES;
+}
 
 @end
