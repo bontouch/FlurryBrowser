@@ -118,7 +118,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [FlurryAnalytics logEvent:@"WEB_VIEW_ERROR" withParameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%@:%@", error.domain, error.code] forKey:@"Error"]];
+    [FlurryAnalytics logEvent:@"WEB_VIEW_ERROR" withParameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%@:%ld", error.domain, (long)error.code] forKey:@"Error"]];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription]  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
@@ -154,7 +154,7 @@
     
     NSMutableDictionary *params = [NSDictionary dictionaryWithObject:resultString forKey:@"Result"];
     if(error)
-        [params setObject:[NSString stringWithFormat:@"%@:%@", error.domain, error.code] forKey:@"Error"];
+        [params setObject:[NSString stringWithFormat:@"%@:%ld", error.domain, (long)error.code] forKey:@"Error"];
         
     [FlurryAnalytics logEvent:@"SEND_EMAIL" withParameters:params];
 
