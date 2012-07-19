@@ -1,0 +1,3 @@
+Create a file called `FlurryBrowser/FlurryBrowser/FlurryKey.h` and add the following line, replacing the key with your own flurry key:
+
+    #define FLURRY_KEY @"XXXXXXXXXXXXXXXX"

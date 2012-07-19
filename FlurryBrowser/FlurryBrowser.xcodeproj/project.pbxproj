@@ -23,6 +23,7 @@
 		C32CC56315B745C20018C394 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C32CC56615B779370018C394 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		C32CC56715B779370018C394 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
+		C32CC56D15B7821D0018C394 /* FlurryKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlurryKey.h; sourceTree = "<group>"; };
 		C3A952FE15B5408D00C0D9AF /* FlurryBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlurryBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3A9530215B5408D00C0D9AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3A9530415B5408D00C0D9AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +102,7 @@
 				C3A9531715B5408D00C0D9AF /* BrowserViewController.h */,
 				C3A9531815B5408D00C0D9AF /* BrowserViewController.m */,
 				C3A9530915B5408D00C0D9AF /* Supporting Files */,
+				C32CC56D15B7821D0018C394 /* FlurryKey.h */,
 			);
 			path = FlurryBrowser;
 			sourceTree = "<group>";

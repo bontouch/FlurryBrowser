@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FlurryAnalytics.h"
+#import "FlurryKey.h"
 
 @implementation AppDelegate
 
@@ -14,6 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [FlurryAnalytics startSession:FLURRY_KEY];
+    [FlurryAnalytics setSessionReportsOnPauseEnabled:YES];
     return YES;
 }
 

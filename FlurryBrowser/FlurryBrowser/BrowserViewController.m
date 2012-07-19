@@ -7,6 +7,7 @@
 //
 
 #import "BrowserViewController.h"
+#import "FlurryAnalytics.h"
 
 @interface BrowserViewController ()
 
@@ -16,8 +17,6 @@
 @synthesize webView=_webView;
 @synthesize addressField=_addressField;
 
-#pragma mark - Actions
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,9 +24,11 @@
     [self goButtonPressed];
 }
 
+#pragma mark - Actions
+
 - (IBAction)actionButtonPressed:(id)sender {
     NSLog(@"actionButtonPressed");
-    
+
     MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
     mailer.mailComposeDelegate = self;
     [mailer setSubject:@"Check this site!"];
@@ -40,14 +41,16 @@
     NSLog(@"goButtonPressed");
     if(![self.addressField.text hasPrefix:@"http://"])
         self.addressField.text = [@"http://" stringByAppendingString:self.addressField.text];
-    
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.addressField.text]]];
-}
 
-#pragma mark -
+    NSURL *URL = [NSURL URLWithString:self.addressField.text];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
+    
+    [FlurryAnalytics logEvent:@"WEB_VIEW_USER_REQUEST" withParameters:[NSDictionary dictionaryWithObject:URL.host forKey:@"Host"]];
+}
 
 @end
 
+#pragma mark - UITextFieldDelegate
 
 @implementation BrowserViewController (UITextFieldDelegate)
 
@@ -60,48 +63,62 @@
 
 @end
 
+#pragma mark - UIWebViewDelegate
+
 @implementation BrowserViewController (UIWebViewDelegate)
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    NSString *resultString = nil;
     switch (navigationType) {
         case UIWebViewNavigationTypeLinkClicked:
-            
+            resultString = @"LinkClicked";
             break;
             
         case UIWebViewNavigationTypeFormSubmitted:
-            
+            resultString = @"FormSubmitted";
             break;
+            
         case UIWebViewNavigationTypeBackForward:
-            
+            resultString = @"BackForward";
             break;
+            
         case UIWebViewNavigationTypeReload:
-            
+            resultString = @"TypeReload";
             break;
+            
         case UIWebViewNavigationTypeFormResubmitted:
-            
+            resultString = @"FormResubmitted";
             break;
-        case UIWebViewNavigationTypeOther:
             
+        case UIWebViewNavigationTypeOther:
+            resultString = @"TypeOther";
+            break;
+            
+        default:
+            resultString = @"Unknown";
             break;
     }
-    NSLog(@"shouldStartLoadWithRequest: %@", request);
+    
+    NSDictionary *params =[NSDictionary dictionaryWithObjectsAndKeys:resultString, @"Result", request.URL.host, @"Host", nil];
+    [FlurryAnalytics logEvent:@"WEB_VIEW_SHOULD_LOAD_PAGE" withParameters:params];
+
     return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidStartLoad");
+    [FlurryAnalytics logEvent:@"WEB_VIEW_LOADING_TIME" timed:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidFinishLoad");
+    [FlurryAnalytics endTimedEvent:@"WEB_VIEW_LOADING_TIME" withParameters:nil];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    NSLog(@"didFailLoadWithError:%@", error);
+    [FlurryAnalytics logEvent:@"WEB_VIEW_ERROR" withParameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%@:%@", error.domain, error.code] forKey:@"Error"]];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription]  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
@@ -109,35 +126,39 @@
 
 @end
 
+#pragma mark - MFMailComposeViewControllerDelegate
+
 @implementation BrowserViewController (MFMailComposeViewControllerDelegate)
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
+    NSString *resultString = nil;
     switch (result)
     {
         case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            resultString = @"Cancelled";
             break;
         case MFMailComposeResultSaved:
-            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            resultString = @"Saved";
             break;
         case MFMailComposeResultSent:
-            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            resultString = @"Sent";
             break;
         case MFMailComposeResultFailed:
-            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            resultString = @"Failed";
             break;
         default:
-            NSLog(@"Mail not sent.");
+            resultString = @"Unknown";
             break;
     }
     
+    NSMutableDictionary *params = [NSDictionary dictionaryWithObject:resultString forKey:@"Result"];
     if(error)
-        NSLog(@"mailComposeControllerdidFailLoadWithError:%@", error);
-    
-    // Remove the mail view
+        [params setObject:[NSString stringWithFormat:@"%@:%@", error.domain, error.code] forKey:@"Error"];
+        
+    [FlurryAnalytics logEvent:@"SEND_EMAIL" withParameters:params];
+
     [self dismissModalViewControllerAnimated:YES];
-    
 }
 
 @end
