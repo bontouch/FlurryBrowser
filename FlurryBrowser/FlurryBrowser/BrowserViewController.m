@@ -128,6 +128,8 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [FlurryAnalytics endTimedEvent:@"WEB_VIEW_LOADING_TIME" withParameters:nil];
+    self.addressField.text = self.webView.request.URL.absoluteString;
+
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
