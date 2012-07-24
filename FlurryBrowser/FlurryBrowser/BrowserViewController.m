@@ -168,7 +168,7 @@
             break;
     }
     
-    NSMutableDictionary *params = [NSDictionary dictionaryWithObject:resultString forKey:@"Result"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:resultString forKey:@"Result"];
     if(error)
         [params setObject:[NSString stringWithFormat:@"%@:%ld", error.domain, (long)error.code] forKey:@"Error"];
         
